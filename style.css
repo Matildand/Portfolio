@@ -1,0 +1,241 @@
+/* CSS Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  color: #ffffff;
+  background-color: #2a2a2a;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.placeholder {
+  background-color: #d9d9d9;
+  width: 100%;
+}
+
+/* ---------------- Header & Navigation ---------------- */
+header {
+  background-color: #222222;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------- Hero Section ---------------- */
+#hero {
+  background-color: #6f6e6e;
+  padding: 150px 20px;
+  text-align: center;
+}
+
+#hero h1 {
+  font-size: 36px;
+  font-weight: normal;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+#hero h2 {
+  font-size: 18px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+/* ---------------- About Section ---------------- */
+#about {
+  background-color: #2a2a2a;
+  padding: 80px 0;
+}
+
+.about-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.about-text h2 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 14px;
+  color: #cccccc;
+}
+
+.about-image {
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+}
+
+/* ---------------- Works Section ---------------- */
+#work {
+  background-color: #2a2a2a;
+  padding-bottom: 0;
+}
+
+.work-header {
+  padding: 40px 0 20px 0;
+}
+
+.work-header h2 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.work-header h3 {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* Contained Carousel Wrapper */
+.work-carousel-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px;
+  overflow: hidden;
+}
+
+/* Scrollable track inside the layout width boundaries */
+.carousel-track {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  cursor: pointer;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual Box styling */
+.carousel-item {
+  flex: 0 0 calc(100% / 3);
+  height: 250px;
+  border: 1px solid #2a2a2a;
+}
+
+/* Darker band for the second video category */
+.video-header-band {
+  background-color: #222222;
+  padding: 30px 40px;
+}
+
+.video-header-band h3 {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* ---------------- Contact Section ---------------- */
+#contact {
+  background-color: #1f1f1f;
+  padding: 80px 0;
+  margin-top: 40px;
+}
+
+.contact-info h2 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 25px;
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.contact-info a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.contact-info a.underline {
+  text-decoration: underline;
+}
+
+/* ---------------- Footer ---------------- */
+footer {
+  background-color: #d9d9d9;
+  color: #333333;
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-flex {
+    flex-direction: column;
+  }
+  .about-image {
+    width: 100%;
+    height: 300px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .carousel-item {
+    flex: 0 0 100%;
+  }
+  .work-carousel-container {
+    padding: 0 20px;
+  }
+}
