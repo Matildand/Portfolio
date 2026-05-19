@@ -31,7 +31,7 @@ body {
 
 /* ---------------- Header & Navigation ---------------- */
 header {
-  background-color: #222222;
+  background-color: #533251;
   padding: 15px 40px;
   position: sticky;
   top: 0;
@@ -69,9 +69,35 @@ nav {
 
 /* ---------------- Hero Section ---------------- */
 #hero {
-  background-color: #6f6e6e;
-  padding: 150px 20px;
+  position: relative; /* Acts as an anchor for the absolutely positioned video */
+  width: 100%;
+  height: 60vh; /* Sets the hero height (60% of the viewport height) */
+  overflow: hidden; /* Prevents any video overflow from breaking the page layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The actual background video element */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%); /* Centers the video perfectly */
+  object-fit: cover; /* Crop and scale seamlessly like a background image */
+  z-index: 1; /* Places it behind the text content */
+}
+
+/* Container for text content sitting over the video */
+.hero-content {
+  position: relative;
+  z-index: 2; /* Pulls the text out in front of the video layer */
   text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Optional: helps white text read clearly over bright video frames */
 }
 
 #hero h1 {
@@ -213,8 +239,8 @@ nav {
 
 /* ---------------- Footer ---------------- */
 footer {
-  background-color: #d9d9d9;
-  color: #333333;
+  background-color: #533251;
+  color: #ffffff;
   text-align: center;
   padding: 15px 20px;
   font-size: 12px;
