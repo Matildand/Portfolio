@@ -12,7 +12,7 @@ html {
 body {
   font-family: "Courier New", Courier, monospace;
   color: #ffffff;
-  background-color: #2a2a2a;
+  background-color: #0d0213;
   line-height: 1.5;
   overflow-x: hidden;
 }
@@ -24,15 +24,10 @@ body {
   padding: 0 40px;
 }
 
-.placeholder {
-  background-color: #d9d9d9;
-  width: 100%;
-}
-
 /* ---------------- Header & Navigation ---------------- */
 header {
   background-color: #533251;
-  padding: 15px 40px;
+  padding: 10px 40px;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -50,6 +45,11 @@ nav {
   color: #ffffff;
   font-size: 24px;
   text-decoration: none;
+  display: flex;
+  gap: 10px;
+}
+#logo {
+  width: 45px;
 }
 
 .nav-links {
@@ -115,7 +115,7 @@ nav {
 
 /* ---------------- About Section ---------------- */
 #about {
-  background-color: #2a2a2a;
+  background-color: #0d0213;
   padding: 80px 0;
 }
 
@@ -146,11 +146,55 @@ nav {
   width: 300px;
   height: 300px;
   flex-shrink: 0;
+  object-fit: cover; /* Forces the image to crop perfectly within the 300x300 box */
+  border-radius: 10px;
+}
+#works {
+  background-color: #0d0213;
+  padding: 15px 0;
 }
 
+.works-flex {
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.works-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.works-text h2 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.works-text p {
+  font-size: 14px;
+  color: #cccccc;
+}
+.workscontainer-img {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.works-image {
+  width: 350px;
+  height: 250px;
+  flex-shrink: 0;
+  object-fit: cover; /* Forces the image to crop perfectly within the 300x300 box */
+  border-radius: 10px;
+}
 /* ---------------- Works Section ---------------- */
 #work {
-  background-color: #2a2a2a;
+  background-color: #0d0213;
   padding-bottom: 0;
 }
 
@@ -191,10 +235,52 @@ nav {
 }
 
 /* Individual Box styling */
-.carousel-item {
+/* The new clickable container */
+.carousel-item-link {
   flex: 0 0 calc(100% / 3);
   height: 250px;
   border: 1px solid #2a2a2a;
+  position: relative; /* Acts as an anchor for the absolute text */
+  display: block; /* Forces the link to behave like a box */
+  overflow: hidden; /* Prevents the image from spilling out */
+  text-decoration: none; /* Removes the default blue underline from links */
+}
+
+/* The Image inside the link */
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease; /* Makes the grey-out effect smooth */
+}
+
+/* The Title Text */
+.carousel-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Perfect dead-center alignment */
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 1px;
+  opacity: 0; /* Completely hidden by default */
+  transition: opacity 0.3s ease; /* Makes the text fade in smoothly */
+  text-align: center;
+  z-index: 2; /* Keeps the text above the image */
+  width: 90%; /* Prevents long titles from hitting the edges */
+}
+
+/* ---------------- HOVER ANIMATIONS ---------------- */
+
+/* 1. When hovering over the box, turn the image grey and darken it */
+.carousel-item-link:hover .carousel-img {
+  /* Grayscale removes color, brightness makes it darker so white text is readable */
+  filter: grayscale(60%) brightness(40%);
+}
+
+/* 2. When hovering over the box, reveal the text */
+.carousel-item-link:hover .carousel-title {
+  opacity: 1;
 }
 
 /* Darker band for the second video category */
@@ -212,7 +298,7 @@ nav {
 
 /* ---------------- Contact Section ---------------- */
 #contact {
-  background-color: #1f1f1f;
+  background-color: #1e1322;
   padding: 80px 0;
   margin-top: 40px;
 }
@@ -239,7 +325,7 @@ nav {
 
 /* ---------------- Footer ---------------- */
 footer {
-  background-color: #533251;
+  background-color: #553758;
   color: #ffffff;
   text-align: center;
   padding: 15px 20px;
