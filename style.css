@@ -184,10 +184,19 @@ nav {
   align-items: center;
   gap: 10px;
 }
-
+.workscontainer-vid {
+  gap: 10px;
+}
 .works-image {
   width: 350px;
   height: 250px;
+  flex-shrink: 0;
+  object-fit: cover; /* Forces the image to crop perfectly within the 300x300 box */
+  border-radius: 10px;
+}
+.works-vid {
+  width: 710px;
+  height: 500px;
   flex-shrink: 0;
   object-fit: cover; /* Forces the image to crop perfectly within the 300x300 box */
   border-radius: 10px;
