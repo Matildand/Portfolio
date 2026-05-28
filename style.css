@@ -102,13 +102,13 @@ nav {
 
 #hero h1 {
   font-size: 36px;
-  font-weight: normal;
+  font-weight: bold;
   margin-bottom: 10px;
   letter-spacing: 2px;
 }
 
 #hero h2 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: normal;
   letter-spacing: 1px;
 }
@@ -132,13 +132,13 @@ nav {
 }
 
 .about-text h2 {
-  font-size: 20px;
-  font-weight: normal;
+  font-size: 24px;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
 .about-text p {
-  font-size: 14px;
+  font-size: 16px;
   color: #cccccc;
 }
 
@@ -168,13 +168,13 @@ nav {
 }
 
 .works-text h2 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: normal;
   margin-bottom: 20px;
 }
 
 .works-text p {
-  font-size: 14px;
+  font-size: 16px;
   color: #cccccc;
 }
 .workscontainer-img {
@@ -212,13 +212,13 @@ nav {
 }
 
 .work-header h2 {
-  font-size: 20px;
-  font-weight: normal;
+  font-size: 24px;
+  font-weight: bold;
   margin-bottom: 15px;
 }
 
 .work-header h3 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: normal;
 }
 
@@ -271,6 +271,7 @@ nav {
   transform: translate(-50%, -50%); /* Perfect dead-center alignment */
   color: #ffffff;
   font-size: 20px;
+  font-weight: bold;
   letter-spacing: 1px;
   opacity: 0; /* Completely hidden by default */
   transition: opacity 0.3s ease; /* Makes the text fade in smoothly */
@@ -284,7 +285,7 @@ nav {
 /* 1. When hovering over the box, turn the image grey and darken it */
 .carousel-item-link:hover .carousel-img {
   /* Grayscale removes color, brightness makes it darker so white text is readable */
-  filter: grayscale(60%) brightness(40%);
+  filter: grayscale(50%) brightness(40%);
 }
 
 /* 2. When hovering over the box, reveal the text */
@@ -305,6 +306,28 @@ nav {
   font-weight: normal;
 }
 
+#showreel {
+  max-width: 800px; /* Controls how big the video can get on desktop */
+  width: 100%;
+  margin: 40px auto; /* "auto" on the left and right handles the centering */
+  position: relative;
+
+  /* Perfect 16:9 Aspect Ratio Math (9 divided by 16 = 0.5625) */
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+/* 2. The actual YouTube iframe stretching to perfectly fill the wrapper */
+#showreel iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* Removes default browser borders */
+}
+
 /* ---------------- Contact Section ---------------- */
 #contact {
   background-color: #1e1322;
@@ -313,14 +336,14 @@ nav {
 }
 
 .contact-info h2 {
-  font-size: 20px;
-  font-weight: normal;
+  font-size: 24px;
+  font-weight: bold;
   margin-bottom: 25px;
 }
 
 .contact-info p {
   margin-bottom: 15px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .contact-info a {
