@@ -19,7 +19,7 @@ body {
 
 /* Utility Classes */
 .container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 40px;
 }
@@ -224,7 +224,7 @@ nav {
 
 /* Contained Carousel Wrapper */
 .work-carousel-container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 40px;
   overflow: hidden;
