@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Matilda Anderson | 3D & Interactive Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
@@ -14,36 +20,73 @@
           <img src="logo.png" alt="logo" id="logo" /> MA</a
         >
 
-        <div class="nav-links">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span>
+        </button>
+
+        <div class="nav-links" id="nav-links">
           <a href="index.html#about">About Me</a>
           <a href="index.html#work">Work</a>
           <a href="#contact">Contact Me</a>
         </div>
       </nav>
     </header>
-    <section id="works">
+
+    <div class="container page-nav">
+      <a href="index.html#work" class="back-link"
+        ><span>←</span> Back to work</a
+      >
+    </div>
+    <div id="Planets"></div>
+    <section class="works">
       <div class="container works-flex">
         <div class="works-text">
-          <h2>Neon Room - Blender</h2>
+          <h2>Proxima Ikos Planet Models - Blender</h2>
           <p>
-            Neon Room is the first installment in a series of 3D works inspired
-            by colouring in books. Each work uses a limited colour palette and
-            cutesy style to emulate how one may use textas on a page.
+            A collection of planet models created and textured in Blender using
+            shader and geometry nodes. These models were made for my
+            multichannel audio visual work Proxima Ikos
           </p>
         </div>
         <div class="workscontainer-img">
-          <img src="Neonhouse.png" alt="Matilda Anderson" class="works-image" />
-          <img src="lavalamp.png" alt="Matilda Anderson" class="works-image" />
-          <img src="pillow.png" alt="Matilda Anderson" class="works-image" />
-          <img src="shelf.png" alt="Matilda Anderson" class="works-image" />
+          <img
+            src="cyber.png"
+            alt="metal high tech planet"
+            class="works-image"
+            loading="lazy"
+          />
+          <img
+            src="magma1.png"
+            alt="lava planet"
+            class="works-image"
+            loading="lazy"
+          />
+          <img
+            src="storm.png"
+            alt="lightning storm planet"
+            class="works-image"
+            loading="lazy"
+          />
+          <img
+            src="Aurorasl.png"
+            alt="aurora planet"
+            class="works-image"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
     <div id="Air"></div>
-    <section id="works">
+    <section class="works">
       <div class="container works-flex">
         <div class="works-text">
-          <h2>Airport Model- Blender</h2>
+          <h2>Airport Model - Blender</h2>
           <p>
             This model was made during an internship at TenHammers. It will
             eventually be used as a base map for training simulators. All models
@@ -55,43 +98,122 @@
             src="finalairport.png"
             alt="Matilda Anderson"
             class="works-image"
+            loading="lazy"
           />
-          <img src="walls.png" alt="Matilda Anderson" class="works-image" />
-          <img src="runway.png" alt="Matilda Anderson" class="works-image" />
-          <img src="tower.png" alt="Matilda Anderson" class="works-image" />
+          <img
+            src="walls.png"
+            alt="Matilda Anderson"
+            class="works-image"
+            loading="lazy"
+          />
+          <img
+            src="runway.png"
+            alt="Matilda Anderson"
+            class="works-image"
+            loading="lazy"
+          />
+          <img
+            src="tower.png"
+            alt="Matilda Anderson"
+            class="works-image"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
-    <div id="Box"></div>
-    <section id="works">
+    <div id="Neon"></div>
+    <section class="works">
       <div class="container works-flex">
         <div class="works-text">
-          <h2>Jewellery Box - Maya</h2>
+          <h2>Neon Room - Blender</h2>
           <p>
-            This jewellery box model is inspired by my childhood aspirations to
-            be a ballerina. It focuse on the dancing pointe shoes as they
-            represent the breaking moment in my pursuit of the craft
+            Neon Room is the first instalment in a series of 3D works inspired
+            by colouring in books. Each work uses a limited colour palette and
+            cutesy style to emulate how one may use textas on a page.
           </p>
         </div>
         <div class="workscontainer-img">
-          <img src="open.jpg" alt="jewellery box model" class="works-image" />
-          <img src="bow.jpg" alt="draw with bow" class="works-image" />
-          <img src="Shoes.jpg" alt="close up on shoes" class="works-image" />
-          <img src="closed.jpg" alt="closed view" class="works-image" />
+          <img src="Neonhouse.png" alt="Matilda Anderson" class="works-image" />
+          <img
+            src="lavalamp.png"
+            alt="Matilda Anderson"
+            class="works-image"
+            loading="lazy"
+          />
+          <img
+            src="pillow.png"
+            alt="Matilda Anderson"
+            class="works-image"
+            loading="lazy"
+          />
+          <img
+            src="shelf.png"
+            alt="Matilda Anderson"
+            class="works-image"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
 
+    <div id="Box"></div>
+    <section class="works">
+      <div class="container works-flex">
+        <div class="works-text">
+          <h2>Jewellery Box - Maya</h2>
+          <p>
+            This jewellery box model was made in Maya and was inspired by my
+            childhood aspirations to be a ballerina. The object textures are all
+            hand painted UV maps inspired by Impressionist painters.
+          </p>
+        </div>
+        <div class="workscontainer-img">
+          <img
+            src="open.jpg"
+            alt="jewellery box model"
+            class="works-image"
+            loading="lazy"
+          />
+          <img
+            src="bow.jpg"
+            alt="draw with bow"
+            class="works-image"
+            loading="lazy"
+          />
+          <img
+            src="Shoes.jpg"
+            alt="close up on shoes"
+            class="works-image"
+            loading="lazy"
+          />
+          <img
+            src="closed.jpg"
+            alt="closed view"
+            class="works-image"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <div class="container page-nav bottom">
+      <a href="index.html#work" class="back-link"
+        ><span>←</span> Back to work</a
+      >
+    </div>
+
     <section id="contact">
       <div class="container contact-info">
         <h2>Contact Me!</h2>
-        <p>
+        <p class="contact-lead">
+          Currently open to interactive and multimedia roles.
+        </p>
+        <p class="contact-email">
           <a href="mailto:matilda.a2131@gmail.com" class="underline"
             >matilda.a2131@gmail.com</a
           >
         </p>
-        <p>+61 478 737 902</p>
-        <p>
+        <p class="contact-linkedin">
           <a
             href="https://www.linkedin.com/in/matildaand"
             target="_blank"

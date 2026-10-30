@@ -1,3 +1,8 @@
+/* ============================================================
+   1. Infinite carousel (your original loop logic)
+   Additions: only the middle copy of the cards can be tabbed to
+   with the keyboard, and the arrow buttons scroll one card.
+   ============================================================ */
 const tracks = document.querySelectorAll(".carousel-track");
 
 tracks.forEach((track) => {
@@ -12,6 +17,19 @@ tracks.forEach((track) => {
       track.appendChild(clone);
     });
   }
+
+  // Keyboard: with 16 copies of every card, tabbing would mean dozens of
+  // duplicate stops. Only the set that starts at the initial scroll position
+  // (set 8, the middle one) stays tabbable; the rest are skipped by keyboard
+  // and hidden from screen readers. They are still clickable.
+  const setSize = originalItems.length;
+  const tabbableSet = 8;
+  Array.from(track.children).forEach((item, index) => {
+    if (Math.floor(index / setSize) !== tabbableSet) {
+      item.setAttribute("tabindex", "-1");
+      item.setAttribute("aria-hidden", "true");
+    }
+  });
 
   // 2. Center the scroll position deep inside the massive track
   function setInitialScroll() {
@@ -54,4 +72,89 @@ tracks.forEach((track) => {
       track.scrollLeft += halfWidth;
     }
   });
+
+  // 5. Arrow buttons: scroll one card left or right
+  const shell = track.closest(".work-carousel-container");
+  if (shell) {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    function scrollByCard(direction) {
+      const card = track.querySelector(".carousel-item-link");
+      const step = card ? card.getBoundingClientRect().width : 300;
+      track.scrollBy({
+        left: direction * step,
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    }
+
+    const prev = shell.querySelector(".carousel-btn.prev");
+    const next = shell.querySelector(".carousel-btn.next");
+    if (prev) prev.addEventListener("click", () => scrollByCard(-1));
+    if (next) next.addEventListener("click", () => scrollByCard(1));
+  }
 });
+
+/* ============================================================
+   2. Mobile menu toggle
+   ============================================================ */
+(function () {
+  const toggle = document.querySelector(".nav-toggle");
+  const links = document.querySelector(".nav-links");
+  if (!toggle || !links) return;
+
+  function setOpen(open) {
+    links.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+  }
+
+  toggle.addEventListener("click", () => {
+    setOpen(!links.classList.contains("open"));
+  });
+
+  links.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => setOpen(false));
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+})();
+
+/* ============================================================
+   3. Gentle scroll reveal
+   Things fade up softly as they enter the viewport. Anything
+   already on screen at load is left alone, and it's skipped
+   entirely for people who prefer reduced motion.
+   ============================================================ */
+(function () {
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+  const targets = document.querySelectorAll(
+    ".about-flex, .showreel-head, .showreel-band .window, .work-header, " +
+      ".work-carousel-container, .works-text, .workscontainer-img, " +
+      ".workscontainer-vid, .contact-info",
+  );
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+  );
+
+  targets.forEach((el) => {
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
+    el.classList.add("reveal");
+    observer.observe(el);
+  });
+})();

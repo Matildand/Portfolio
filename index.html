@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Matilda Anderson | 3D & Interactive Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
@@ -14,7 +20,17 @@
           <img src="logo.png" alt="logo" id="logo" /> MA</a
         >
 
-        <div class="nav-links">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span>
+        </button>
+
+        <div class="nav-links" id="nav-links">
           <a href="#about">About Me</a>
           <a href="#work">Work</a>
           <a href="#contact">Contact Me</a>
@@ -24,34 +40,99 @@
 
     <main>
       <section id="hero">
-        <video autoplay loop muted playsinline class="hero-video">
-          <source src="portfolio.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <span class="hero-kicker">Portfolio</span>
+            <h1>Matilda<br /><em>Anderson</em></h1>
+            <h2>3D & Multimedia Designer</h2>
+            <div class="hero-actions">
+              <a href="#work" class="btn btn-pink">See my work ↓</a>
+              <a class="btn btn-ghost">Watch the showreel ▸</a>
+            </div>
+          </div>
 
-        <div class="hero-content">
-          <h1>Matilda<br />Anderson</h1>
-          <h2>3D & Interactive Designer</h2>
+          <div class="window hero-window">
+            <div class="window-bar" aria-hidden="true">
+              <span class="window-title">showreel.mp4</span>
+              <span class="window-controls">
+                <i class="wc-min"></i><i class="wc-max"></i
+                ><i class="wc-close"></i>
+              </span>
+            </div>
+
+            <iframe
+              class="hero-video"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/iqxiPKwa28E?si=eEXPVH4-tjztoDj4"
+              title="YouTube video player"
+              frameborder="0"
+              loading="lazy"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
+
+        <span class="bubble b1" aria-hidden="true"></span>
+        <span class="bubble b2" aria-hidden="true"></span>
+        <span class="bubble b3" aria-hidden="true"></span>
       </section>
 
-      <section id="about">
-        <div class="container about-flex">
-          <div class="about-text">
-            <h2>Hi! Im Matilda</h2>
-            <p>
-              I have a passion for creating immersive worlds and atmospheres. I
-              work across 3D, video and interactive media, combining disciplines
-              to produce engaging works. With my experience across a wide range
-              of tools and practices I use bright and expressive visuals to push
-              boundaries through my projects.
-            </p>
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <div class="ticker-group">
+            <span>3D Modelling</span><span>●</span><span>Interactive</span
+            ><span>●</span><span>Experimental Video</span><span>●</span
+            ><span>Blender</span><span>●</span><span>After Effects</span
+            ><span>●</span><span>TouchDesigner</span><span>●</span
+            ><span>Illustrator</span><span>●</span>
           </div>
-          <img
-            src="self-image.jpg"
-            alt="Matilda Anderson"
-            class="about-image"
-          />
+          <div class="ticker-group">
+            <span>3D Modelling</span><span>●</span><span>Interactive</span
+            ><span>●</span><span>Experimental Video</span><span>●</span
+            ><span>Blender</span><span>●</span><span>After Effects</span
+            ><span>●</span><span>TouchDesigner</span><span>●</span
+            ><span>Illustrator</span><span>●</span>
+          </div>
+        </div>
+      </div>
+
+      <section id="about">
+        <div class="container">
+          <div class="about-flex">
+            <div class="about-text">
+              <h2>Hi! I'm Matilda</h2>
+              <p>
+                I have a passion for creating immersive worlds and atmospheres.
+                I work across 3D, video and interactive media, combining
+                disciplines to produce engaging works. With my experience across
+                a wide range of tools and practices I use bright and expressive
+                visuals to push boundaries through my projects.
+              </p>
+              <p class="chips-label">Tools I work in</p>
+              <ul class="chips">
+                <li>Blender</li>
+                <li>After Effects</li>
+                <li>TouchDesigner</li>
+                <li>Illustrator</li>
+              </ul>
+            </div>
+            <img
+              src="self-image.jpg"
+              alt="Matilda Anderson"
+              class="about-image"
+            />
+          </div>
         </div>
       </section>
 
@@ -62,8 +143,24 @@
         </div>
 
         <div class="work-carousel-container">
+          <button
+            class="carousel-btn prev"
+            type="button"
+            aria-label="Scroll left"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path
+                d="M15 5l-7 7 7 7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
           <div class="carousel-track">
-            <a href="project1.html" class="carousel-item-link"
+            <a href="project1.html#Neon" class="carousel-item-link"
               ><img src="Neonhouse.png" alt="3D Render" class="carousel-img" />
               <div class="carousel-title">Neon Room</div>
             </a>
@@ -75,26 +172,62 @@
               />
               <div class="carousel-title">Airport Model</div>
             </a>
+            <a href="project1.html" class="carousel-item-link"
+              ><img src="cyber1.png" alt="3D Render" class="carousel-img" />
+              <div class="carousel-title">Proxima Ikos Planets</div>
+            </a>
             <a href="project1.html#Box" class="carousel-item-link"
               ><img src="open.jpg" alt="3D Render" class="carousel-img" />
               <div class="carousel-title">Jewellery Box</div>
             </a>
           </div>
+          <button
+            class="carousel-btn next"
+            type="button"
+            aria-label="Scroll right"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path
+                d="M9 5l7 7-7 7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
         </div>
 
         <div class="container work-header">
           <h3>Interactive and Experimental Video</h3>
         </div>
 
-        <div class="work-carousel-container">
+        <div class="work-carousel-container tint-lilac">
+          <button
+            class="carousel-btn prev"
+            type="button"
+            aria-label="Scroll left"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path
+                d="M15 5l-7 7 7 7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
           <div class="carousel-track">
             <a href="project2.html" class="carousel-item-link"
               ><img
-                src="pinkbubbles.png"
-                alt="Music Reactive"
+                src="familythreadpic.png"
+                alt="Stop Motion"
                 class="carousel-img"
               />
-              <div class="carousel-title">Perpetual Bubbles</div>
+              <div class="carousel-title">Family Thread</div>
             </a>
             <a href="project2.html#OS" class="carousel-item-link"
               ><img
@@ -102,8 +235,9 @@
                 alt="Video Work"
                 class="carousel-img"
               />
-              <div class="carousel-title">oniericOS</div>
+              <div class="carousel-title">oneiricOS</div>
             </a>
+
             <a href="project2.html#Blue" class="carousel-item-link"
               ><img
                 src="bluebubble.png"
@@ -121,42 +255,37 @@
               <div class="carousel-title">A Guiding Light</div>
             </a>
           </div>
-        </div>
-        <div class="container work-header">
-          <h2>Showreel</h2>
-          <div id="showreel">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/iqxiPKwa28E?si=eEXPVH4-tjztoDj4"
-              title="YouTube video player"
-              frameborder="0"
-              allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-                web-share;
-              "
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </div>
+          <button
+            class="carousel-btn next"
+            type="button"
+            aria-label="Scroll right"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path
+                d="M9 5l7 7-7 7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
         </div>
       </section>
 
       <section id="contact">
         <div class="container contact-info">
           <h2>Contact Me!</h2>
-          <p>
+          <p class="contact-lead">
+            Currently open to interactive and multimedia roles.
+          </p>
+          <p class="contact-email">
             <a href="mailto:matilda.a2131@gmail.com" class="underline"
               >matilda.a2131@gmail.com</a
             >
           </p>
-          <p>+61 478 737 902</p>
-          <p>
+          <p class="contact-linkedin">
             <a
               href="https://www.linkedin.com/in/matildaand"
               target="_blank"
